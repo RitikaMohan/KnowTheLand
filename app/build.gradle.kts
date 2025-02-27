@@ -104,4 +104,10 @@ dependencies {
     // Ensure Hilt Compiler (replace old androidx.hilt:hilt-compiler)
     kapt("androidx.hilt:hilt-compiler:1.0.0")
     implementation("com.google.code.gson:gson:2.10.1")
+
+    implementation("androidx.compose.material:material-icons-extended:1.6.1")
+    implementation("androidx.core:core-splashscreen:1.0.1")
+    implementation("androidx.compose.material3:material3:1.1.2")
+    implementation("androidx.core:core-splashscreen:1.0.0-beta02") // Or latest version
+
 }

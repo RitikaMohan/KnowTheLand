@@ -1,4 +1,4 @@
-package com.example.marktheland.ui
+package com.example.marktheland.ui.theme
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
@@ -13,8 +13,15 @@ fun Navigation(sessionViewModel: SessionViewModel) {
     val navController = rememberNavController()
 
     NavHost(navController, startDestination = "mainScreen") {
-        composable("mainScreen") { MainScreen(sessionViewModel, navController) }
-        composable("sessionHistory") { SessionHistory(sessionViewModel, navController) }
+        // 🔥 Main Screen Route
+        composable("mainScreen") {
+            MainScreen(sessionViewModel, navController)
+        }
+
+        // 🔥 Session History Route
+        composable("sessionHistory") {
+            SessionHistory(sessionViewModel, navController)
+        }
     }
 }
 

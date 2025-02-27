@@ -16,13 +16,12 @@ class SessionViewModel @Inject constructor(
     private val repository: SessionRepository
 ) : ViewModel() {
 
-    val sessions: StateFlow<List<Session>> = repository.sessions
+    val sessions: StateFlow<List<Session>> = repository.sessions // 🔥 Observe Repository
 
     fun saveSession(context: Context, name: String, timestamp: String, bitmap: Bitmap?) {
         val imagePath = bitmap?.let { ImageRepository.saveImageToInternalStorage(context, it, "$timestamp.png") }
         val session = Session(timestamp, name, imagePath)
 
-        repository.saveSession(session) // 🔥 UI will update automatically
-        Log.d("SessionRepository", "Saved session: ${session.name}")
+        repository.saveSession(session) // 🔥 This will now update UI in real-time
     }
 }

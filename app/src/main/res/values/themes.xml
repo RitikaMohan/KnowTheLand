@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
-    <style name="Theme.MarkTheLand" parent="android:Theme.Material.Light.NoActionBar" />
+    <style name="Theme.MarkTheLand" parent="android:Theme.Material.Light.NoActionBar">
+    <item name="android:windowActionBar">false</item>
+    <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.MyApp.SplashScreen" parent="Theme.SplashScreen">
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="windowSplashScreenBackground">@color/brown_background</item><!-- Background color -->
+        <item name="windowSplashScreenAnimatedIcon">@drawable/splash_screen</item><!-- Optional animated icon -->
+        <item name="postSplashScreenTheme">@style/Theme.MarkTheLand</item>  <!-- Theme to use after splash screen fades out -->
+    </style>
+
 </resources>

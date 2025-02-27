@@ -5,10 +5,15 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
+import androidx.compose.ui.Modifier
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.view.WindowCompat
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.example.marktheland.ui.Navigation
+import com.example.marktheland.ui.theme.Navigation
 import com.example.marktheland.ui.theme.MarkTheLandTheme
 import com.example.marktheland.viewmodel.SessionViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -28,10 +33,14 @@ class MainActivity : ComponentActivity() {
 
         enableEdgeToEdge()
 
+        // Hide system action bar
+        WindowCompat.setDecorFitsSystemWindows(window, false)
         setContent {
             MarkTheLandTheme {
                 val sessionViewModel: SessionViewModel = hiltViewModel()
-                Navigation(sessionViewModel)
+                Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
+                    Navigation(sessionViewModel)
+                }
             }
         }
     }
